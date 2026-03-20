@@ -1,0 +1,26 @@
+from,to,trigger,actor,allowed,tc_type,mock_needed,tc_generated
+미접수,접수중,IZ 접수 버튼 클릭 (미접수·접수취소 TASK 선택),IZ,true,정상,false,false
+미접수,접수취소,IZ 접수취소 버튼 클릭,IZ,true,정상,false,false
+미접수,OUT(제외),IZ 제외 버튼 클릭,IZ,true,정상,false,false
+미접수,접수완료,직접 전이 불가,none,false,,,
+미접수,검토중,직접 전이 불가,none,false,,,
+미접수,납부완료,직접 전이 불가,none,false,,,
+접수중,접수완료,WIPSFee Ack 발송 (연차건 KEY 생성 후),WIPSFee,true,정상,true,false
+접수중,접수취소,WIPSFee 반려(긴급),WIPSFee,true,정상,true,false
+접수중,접수취소,WIPSFee 반려(중복),WIPSFee,true,정상,true,false
+접수중,접수취소,WIPSFee IPAZON 공동고객 확인 > 접수취소,WIPSFee,true,정상,true,false
+접수중,미접수,역방향 전이 불가,none,false,,,
+접수완료,검토중,WIPSFee 리마인더 발송,WIPSFee,true,정상,true,false
+검토중,검토완료,IZ 권리유지 검토 저장 (납부지시 전송),IZ,true,정상,false,false
+검토중,납부포기,IZ 권리포기 선택,IZ,true,정상,false,false
+검토중,접수취소,IZ 모든연차 미이용,IZ,true,예외,false,false
+검토완료,미납부,IZ 전송 (지시여부 Y — 납부지시·타사납부·타사이관),IZ,true,정상,false,false
+검토완료,납부포기,IZ 전송 (지시여부 N),IZ,true,정상,false,false
+미납부,입금대기,WIPSFee 청구 발송 (선청구),WIPSFee,true,정상,true,false
+미납부,미납부,WIPSFee 오청구 → 재발송,WIPSFee,true,예외,true,false
+입금대기,입금완료,WIPSFee 입금확인,WIPSFee,true,정상,true,false
+입금완료,납부완료,WIPSFee 연차료 납부 완료,WIPSFee,true,정상,true,false
+납부포기,납부완료,직접 전이 불가,none,false,,,
+납부포기,미납부,직접 전이 불가,none,false,,,
+접수취소,접수중,역방향 전이 불가,none,false,,,
+검토완료,입금대기,전송 없이 직접 전이 불가,none,false,,,
